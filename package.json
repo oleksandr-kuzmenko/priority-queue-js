@@ -1,4 +1,13 @@
 {
+  "name": "priority-queue-js",
+  "version": "0.0.1",
+  "author": "Alex Kuzmenko",
+  "description": "Yet another priority queue implementation.",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/alxpy/priority-queue-js.git",
+    "type": "git"
+  },
   "scripts": {
     "test": "jest",
     "build": "babel src --out-dir dist",
