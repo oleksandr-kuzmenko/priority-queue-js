@@ -54,3 +54,16 @@ test('should correctly sorted objects', () => {
     { msgid: 'fffff', msgstr: '' }
   ]);
 });
+
+
+test('iterator works correctly', () => {
+  const q = new PriorityQueue();
+  q.push(9);
+  q.push(3);
+  q.push(5);
+  const expected = [];
+  for (const item of q) {
+    expected.push(item);
+  }
+  expect(q.data).toEqual(expected);
+})

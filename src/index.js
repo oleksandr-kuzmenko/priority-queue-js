@@ -32,4 +32,23 @@ export default class PriorityQueue {
     }
   }
 
+  [Symbol.iterator]() {
+    let current = 0;
+    const thisData = this.data;
+    const len = thisData.length;
+    return {
+      next() {
+        if (current < len) {
+          const idx = current;
+          current += 1;
+          return {
+            value: thisData[idx],
+            done: false,
+          };
+        }
+        return { done: true };
+      },
+    };
+  }
+
 }
