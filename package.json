@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "test": "jest",
     "build": "babel src --out-dir dist",
     "fix": "eslint --fix ./src",
     "lint": "eslint ./src"
@@ -15,6 +16,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.0",
+    "jest": "^19.0.2",
     "webpack": "^2.2.1"
   }
 }
