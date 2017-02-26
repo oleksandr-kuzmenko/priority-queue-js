@@ -4,6 +4,7 @@
   "author": "Alex Kuzmenko",
   "description": "Yet another priority queue implementation.",
   "license": "MIT",
+  "main": "dist/index.js",
   "repository": {
     "url": "https://github.com/alxpy/priority-queue-js.git",
     "type": "git"
