@@ -1,13 +1,10 @@
 {
   "name": "priority-queue-js",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": "Alex Kuzmenko",
   "description": "Yet another priority queue implementation.",
   "license": "MIT",
   "main": "dist/index.js",
-  "files": [
-    "dist"
-  ],
   "repository": {
     "url": "https://github.com/alxpy/priority-queue-js.git",
     "type": "git"
