@@ -1,6 +1,6 @@
 {
   "name": "priority-queue-js",
-  "version": "0.0.7",
+  "version": "0.0.12",
   "author": "Alex Kuzmenko",
   "description": "Yet another priority queue implementation.",
   "license": "MIT",
