@@ -21,15 +21,36 @@ test('should correctly sorted numbers', () => {
 
 test('should correctly sorted objects', () => {
   function comparator(a, b) {
-    return a.key - b.key;
+      if (a.msgid > b.msgid) {
+          return 1;
+      }
+      if (a.msgid < b.msgid) {
+          return -1;
+      }
+      return 0;
   }
+
   const q = new PriorityQueue({ comparator });
-  q.push({ key: 9 });
-  q.push({ key: 3 });
-  q.push({ key: 5 });
+
+  const data = [
+      { msgid: 'aaaaa', msgstr: '' },
+      { msgid: 'ccccc', msgstr: '' },
+      { msgid: 'eeeee', msgstr: '' },
+      { msgid: 'bbbbb', msgstr: '' },
+      { msgid: 'fffff', msgstr: '' }
+  ];
+
+  q.push(data[0]);
+  q.push(data[1]);
+  q.push(data[2]);
+  q.push(data[3]);
+  q.push(data[4]);
+
   expect(q.data).toEqual([
-    { key: 3 },
-    { key: 5 },
-    { key: 9 },
+    { msgid: 'aaaaa', msgstr: '' },
+    { msgid: 'bbbbb', msgstr: '' },
+    { msgid: 'ccccc', msgstr: '' },
+    { msgid: 'eeeee', msgstr: '' },
+    { msgid: 'fffff', msgstr: '' }
   ]);
 });
