@@ -1,4 +1,4 @@
-import PriorityQueue from '../src/index.js';
+import PriorityQueue from '../src/index';
 
 
 test('should return the correct length', () => {
@@ -21,23 +21,23 @@ test('should correctly sorted numbers', () => {
 
 test('should correctly sorted objects', () => {
   function comparator(a, b) {
-      if (a.msgid > b.msgid) {
-          return 1;
-      }
-      if (a.msgid < b.msgid) {
-          return -1;
-      }
-      return 0;
+    if (a.msgid > b.msgid) {
+      return 1;
+    }
+    if (a.msgid < b.msgid) {
+      return -1;
+    }
+    return 0;
   }
 
   const q = new PriorityQueue({ comparator });
 
   const data = [
-      { msgid: 'aaaaa', msgstr: '' },
-      { msgid: 'ccccc', msgstr: '' },
-      { msgid: 'eeeee', msgstr: '' },
-      { msgid: 'bbbbb', msgstr: '' },
-      { msgid: 'fffff', msgstr: '' }
+    { msgid: 'aaaaa', msgstr: '' },
+    { msgid: 'ccccc', msgstr: '' },
+    { msgid: 'eeeee', msgstr: '' },
+    { msgid: 'bbbbb', msgstr: '' },
+    { msgid: 'fffff', msgstr: '' },
   ];
 
   q.push(data[0]);
@@ -51,7 +51,7 @@ test('should correctly sorted objects', () => {
     { msgid: 'bbbbb', msgstr: '' },
     { msgid: 'ccccc', msgstr: '' },
     { msgid: 'eeeee', msgstr: '' },
-    { msgid: 'fffff', msgstr: '' }
+    { msgid: 'fffff', msgstr: '' },
   ]);
 });
 
@@ -66,4 +66,4 @@ test('iterator works correctly', () => {
     expected.push(item);
   }
   expect(q.data).toEqual(expected);
-})
+});

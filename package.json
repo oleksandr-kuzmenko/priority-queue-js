@@ -12,8 +12,8 @@
   "scripts": {
     "test": "jest",
     "build": "babel src --out-dir dist",
-    "fix": "eslint --fix ./src",
-    "lint": "eslint ./src",
+    "fix": "eslint --fix ./src ./tests",
+    "lint": "eslint ./src ./tests",
     "preversion": "npm run lint && npm run test",
     "prepublish": "npm run build"
   },
@@ -26,11 +26,14 @@
     "eslint": "^3.16.1",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jest": "^19.0.1",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.0",
     "jest": "^19.0.2"
   },
   "jest": {
-    "testMatch": ["**/tests/*.js"]
+    "testMatch": [
+      "**/tests/*.js"
+    ]
   }
 }
