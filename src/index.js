@@ -3,7 +3,7 @@ function defaultComparator(a, b) {
 }
 
 
-export default class PriorityQueue {
+class PriorityQueue {
 
   constructor(params = {}) {
     this.data = [];
@@ -52,3 +52,6 @@ export default class PriorityQueue {
   }
 
 }
+
+
+module.exports = PriorityQueue;
