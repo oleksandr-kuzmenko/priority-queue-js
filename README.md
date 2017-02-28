@@ -1,5 +1,5 @@
 # priority-queue-js [![Build Status](https://travis-ci.org/alxpy/priority-queue-js.svg?branch=master)](https://travis-ci.org/alxpy/priority-queue-js)
-[![NPM](https://nodei.co/npm/priority-queue-js.png?mini=true)](https://nodei.co/npm/priority-queue-js/)
+[![NPM](https://nodei.co/npm/priority-queue-js.png?downloads=true)](https://nodei.co/npm/priority-queue-js/)
 
 Yet another priority queue implementation.
 
