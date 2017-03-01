@@ -6,27 +6,47 @@ function defaultComparator(a, b) {
 class PriorityQueue {
 
   constructor(params = {}) {
-    this.data = [];
+    this._data = [];
     this.comparator = params.comparator || defaultComparator;
   }
 
   get length() {
-    return this.data.length;
+    return this._data.length;
   }
 
   push(item) {
-    this.data.push(item);
-    this.up(this.data.length - 1);
+    this._data.push(item);
+    this._up(this._data.length - 1);
   }
 
-  up(position) {
+  peek() {
+    return this._data[0];
+  }
+
+  pop() {
+    return this._data.pop();
+  }
+
+  shift() {
+    return this._data.shift();
+  }
+
+  slice(begin, end) {
+    return this._data.slice(begin, end);
+  }
+
+  copy() {
+    return this._data.slice();
+  }
+
+  _up(position) {
     let pos = position;
     while (pos > 0) {
       const parent = pos - 1;
-      if (this.comparator(this.data[pos], this.data[parent]) < 0) {
-        const tmp = this.data[parent];
-        this.data[parent] = this.data[pos];
-        this.data[pos] = tmp;
+      if (this.comparator(this._data[pos], this._data[parent]) < 0) {
+        const tmp = this._data[parent];
+        this._data[parent] = this._data[pos];
+        this._data[pos] = tmp;
         pos = parent;
       } else break;
     }
@@ -34,7 +54,7 @@ class PriorityQueue {
 
   [Symbol.iterator]() {
     let current = 0;
-    const thisData = this.data;
+    const thisData = this._data;
     const len = thisData.length;
     return {
       next() {

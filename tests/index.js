@@ -15,7 +15,7 @@ test('should correctly sorted numbers', () => {
   q.push(9);
   q.push(3);
   q.push(5);
-  expect(q.data).toEqual([3, 5, 9]);
+  expect(q.copy()).toEqual([3, 5, 9]);
 });
 
 
@@ -46,7 +46,7 @@ test('should correctly sorted objects', () => {
   q.push(data[3]);
   q.push(data[4]);
 
-  expect(q.data).toEqual([
+  expect(q.copy()).toEqual([
     { msgid: 'aaaaa', msgstr: '' },
     { msgid: 'bbbbb', msgstr: '' },
     { msgid: 'ccccc', msgstr: '' },
@@ -65,5 +65,51 @@ test('iterator works correctly', () => {
   for (const item of q) {
     expected.push(item);
   }
-  expect(q.data).toEqual(expected);
+  expect(q.copy()).toEqual(expected);
+});
+
+
+test('peek()', () => {
+  const q = new PriorityQueue();
+  expect(q.peek()).toEqual(undefined);
+  q.push(9);
+  q.push(3);
+  q.push(5);
+  expect(q.peek()).toEqual(3);
+  expect(q.length).toBe(3);
+});
+
+
+test('pop()', () => {
+  const q = new PriorityQueue();
+  q.push(9);
+  q.push(3);
+  q.push(5);
+  expect(q.pop()).toEqual(9);
+  expect(q.length).toBe(2);
+  expect(q.pop()).toEqual(5);
+  expect(q.pop()).toEqual(3);
+  expect(q.pop()).toEqual(undefined);
+});
+
+
+test('shift()', () => {
+  const q = new PriorityQueue();
+  q.push(9);
+  q.push(3);
+  q.push(5);
+  expect(q.shift()).toEqual(3);
+  expect(q.length).toBe(2);
+  expect(q.shift()).toEqual(5);
+  expect(q.shift()).toEqual(9);
+  expect(q.shift()).toEqual(undefined);
+});
+
+
+test('slice()', () => {
+  const q = new PriorityQueue();
+  q.push(9);
+  q.push(3);
+  q.push(5);
+  expect(q.slice(0, 2)).toEqual([3, 5]);
 });
