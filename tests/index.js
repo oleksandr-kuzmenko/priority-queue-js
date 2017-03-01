@@ -113,3 +113,22 @@ test('slice()', () => {
   q.push(5);
   expect(q.slice(0, 2)).toEqual([3, 5]);
 });
+
+test('forEach()', () => {
+  const q = new PriorityQueue();
+  q.push(9);
+  q.push(3);
+  q.push(5);
+  const expected = [];
+  q.forEach(item => expected.push(item));
+  expect(q.copy()).toEqual(expected);
+});
+
+
+test('map()', () => {
+  const q = new PriorityQueue();
+  q.push(9);
+  q.push(3);
+  q.push(5);
+  expect(q.map(item => item + 1)).toEqual([4, 6, 10]);
+});

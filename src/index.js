@@ -39,6 +39,14 @@ class PriorityQueue {
     return this._data.slice();
   }
 
+  forEach(cb) {
+    return this._data.forEach(cb);
+  }
+
+  map(cb) {
+    return this._data.map(cb);
+  }
+
   _up(position) {
     let pos = position;
     while (pos > 0) {
