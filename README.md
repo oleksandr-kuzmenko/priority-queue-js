@@ -3,7 +3,22 @@
 
 Yet another priority queue implementation.
 
-# quick start
+# Features
+- implementation of Array interface (`push`, `slice`, `forEach`, `map` etc.)
+- written in ES6
+
+# Installing
+`npm install priority-queue-js`
+
+# API
+- `.push(item)` - inserts a new item
+- `.peek()` - returns the smallest item
+- `.pop()` - removes the smallest item and returns it
+- `.shift()` - removes the biggest item and returns it
+- `.slice(begin, end)` - returns slice of queue data
+- `.copy()` - returns copy of queue data
+
+# Quick start
 ```js
 import PriorityQueue from 'priority-queue-js';
 
@@ -13,7 +28,7 @@ queue.push(9);
 queue.push(3);
 queue.push(5);
 
-expect(queue.data).toEqual([3, 5, 9]);
+expect(queue.copy()).toEqual([3, 5, 9]);  // works with Jest
 ```
 
 ```js
@@ -32,5 +47,8 @@ for (const item of queue) {
 }
 ```
 
-# caution
-this is a very alpha
+# License
+[MIT](https://github.com/alxpy/priority-queue-js/blob/master/LICENSE)
+
+# Caution
+This is a very alpha, API can be changed.
