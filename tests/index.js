@@ -11,11 +11,15 @@ test('should return the correct length', () => {
 
 
 test('should correctly sorted numbers', () => {
+  let expected = [];
   const q = new PriorityQueue();
-  q.push(9);
-  q.push(3);
-  q.push(5);
-  expect(q.copy()).toEqual([3, 5, 9]);
+  Array(100).fill(1).forEach(() => {
+    const n = Math.random() * 100;
+    q.push(n);
+    expected.push(n);
+  });
+  expected = expected.sort((a, b) => a - b);
+  expect(q.copy()).toEqual(expected);
 });
 
 
@@ -37,7 +41,7 @@ test('should correctly sorted objects', () => {
     { msgid: 'ccccc', msgstr: '' },
     { msgid: 'eeeee', msgstr: '' },
     { msgid: 'bbbbb', msgstr: '' },
-    { msgid: 'fffff', msgstr: '' },
+    { msgid: 'ddddd', msgstr: '' },
   ];
 
   q.push(data[0]);
@@ -50,8 +54,8 @@ test('should correctly sorted objects', () => {
     { msgid: 'aaaaa', msgstr: '' },
     { msgid: 'bbbbb', msgstr: '' },
     { msgid: 'ccccc', msgstr: '' },
+    { msgid: 'ddddd', msgstr: '' },
     { msgid: 'eeeee', msgstr: '' },
-    { msgid: 'fffff', msgstr: '' },
   ]);
 });
 
@@ -127,8 +131,8 @@ test('forEach()', () => {
 
 test('map()', () => {
   const q = new PriorityQueue();
-  q.push(9);
+  q.push(10);
   q.push(3);
   q.push(5);
-  expect(q.map(item => item + 1)).toEqual([4, 6, 10]);
+  expect(q.map(item => item + 1)).toEqual([4, 6, 11]);
 });

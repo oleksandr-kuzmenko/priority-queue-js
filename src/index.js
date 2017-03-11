@@ -15,8 +15,7 @@ class PriorityQueue {
   }
 
   push(item) {
-    this._data.push(item);
-    this._up(this._data.length - 1);
+    this._push(item);
   }
 
   peek() {
@@ -47,17 +46,46 @@ class PriorityQueue {
     return this._data.map(cb);
   }
 
-  _up(position) {
-    let pos = position;
-    while (pos > 0) {
-      const parent = pos - 1;
-      if (this.comparator(this._data[pos], this._data[parent]) < 0) {
-        const tmp = this._data[parent];
-        this._data[parent] = this._data[pos];
-        this._data[pos] = tmp;
-        pos = parent;
-      } else break;
+  /**
+   * TODO: Fix this ugly code and write benchmark
+   * Maybe I should just use `Array.sort`?
+   */
+  _push(item) {
+    if (this.length === 0) {
+      this._data.push(item);
+      return;
     }
+
+    if (this.length < 3) {
+      this._data.push(item);
+      this._data.sort(this.comparator);
+      return;
+    }
+
+    let leftPos = 0;
+    let rightPos = this.length - 1;
+
+    while (rightPos - leftPos > 1) {
+      const midPos = Math.floor(((leftPos + rightPos) / 2));
+
+      if (this.comparator(item, this._data[midPos]) < 0) {
+        rightPos = midPos;
+      } else {
+        leftPos = midPos;
+      }
+    }
+
+    if (this.comparator(item, this._data[leftPos]) <= 0) {
+      this._data = [item, ...this._data];
+      return;
+    } else if (this.comparator(item, this._data[rightPos]) >= 0) {
+      this._data.push(item);
+      return;
+    }
+
+    const left = this._data.slice(0, leftPos + 1);
+    const right = this._data.slice(leftPos + 1);
+    this._data = [...left, item, ...right];
   }
 
   [Symbol.iterator]() {

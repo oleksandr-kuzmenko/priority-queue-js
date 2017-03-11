@@ -3,6 +3,9 @@
 
 Yet another priority queue implementation.
 
+# Caution
+This is a very alpha, API can be changed.
+
 # Features
 - implementation of Array interface (`push`, `slice`, `forEach`, `map` etc.)
 - written in ES6
@@ -28,7 +31,7 @@ queue.push(9);
 queue.push(3);
 queue.push(5);
 
-expect(queue.copy()).toEqual([3, 5, 9]);  // works with Jest
+console.log(queue.copy())  // [3, 5, 9]
 ```
 
 ```js
@@ -49,6 +52,3 @@ for (const item of queue) {
 
 # License
 [MIT](https://github.com/alxpy/priority-queue-js/blob/master/LICENSE)
-
-# Caution
-This is a very alpha, API can be changed.
